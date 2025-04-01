@@ -21,13 +21,21 @@ export default function ConfirmacaoWebinarComTemporizador() {
     // Pegar parâmetros da URL
     const params = new URLSearchParams(window.location.search)
     const link = decodeURIComponent(params.get("wj_lead_unique_link_live_room") || "")
-    const date = decodeURIComponent(params.get("wj_next_event_date") || "")
     const time = decodeURIComponent(params.get("wj_next_event_time") || "")
     const timezone = decodeURIComponent(params.get("wj_next_event_timezone") || "")
     const timestamp = params.get("wj_event_ts") || ""
 
+    // Usar a data atual
+    const today = new Date()
+    const formattedDate = today.toLocaleDateString('pt-BR', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
+
     setWebinarLink(link)
-    setEventDate(date)
+    setEventDate(formattedDate)
     setEventTime(time)
     setEventTimezone(timezone)
 
@@ -209,7 +217,7 @@ export default function ConfirmacaoWebinarComTemporizador() {
 
       {/* Rodapé */}
       <footer className="mt-auto py-4 text-center text-sm text-gray-600">
-        <p>Copyright © 2024 WillianAksenen Todos os Direitos Reservados.</p>
+        <p>Copyright © 2025 WillianAksenen Todos os Direitos Reservados.</p>
       </footer>
     </div>
   )
