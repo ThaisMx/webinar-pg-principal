@@ -8,15 +8,15 @@ export default function ConfirmacaoWebinar() {
       {/* Cabeçalho */}
       <header className="py-4 text-center border-b">
         <h1 className="text-2xl font-bold">
-          Asia Forex Mentor<sup>®</sup>
+          Willian Aksenen<sup>®</sup>
         </h1>
       </header>
 
       {/* Seção do Banner Azul */}
       <section className="bg-blue-500 text-white py-12 px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-light mb-6">Você está registrado para o webinar!</h2>
+        <h2 className="text-4xl md:text-5xl font-light mb-6">Você está registrado para a aula!</h2>
         <p className="max-w-3xl mx-auto mb-4">
-          Esta página redirecionará automaticamente para a sala de exibição quando o webinar estiver programado para
+          Esta página redirecionará automaticamente para a sala de exibição quando a aula estiver programada para
           começar.
         </p>
         <p className="max-w-3xl mx-auto">
@@ -28,7 +28,7 @@ export default function ConfirmacaoWebinar() {
       {/* Seção do Link do Webinar */}
       <div className="max-w-4xl mx-auto w-full px-4 py-8">
         <div className="text-center mb-6">
-          <p className="font-medium mb-2">Link da sua sessão de webinar:</p>
+          <p className="font-medium mb-2">Link da sua aula:</p>
           <div className="flex items-center justify-center gap-2 bg-gray-100 p-2 rounded">
             <input
               type="text"
@@ -84,13 +84,13 @@ export default function ConfirmacaoWebinar() {
               />
             </div>
             <p className="text-sm text-gray-600 mb-1">Apresentado por:</p>
-            <p className="font-bold">Ezekiel Chew</p>
+            <p className="font-bold">Willian Aksenen</p>
           </div>
 
           {/* O que Você Vai Aprender */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-center mb-6">
-              Aqui está o que você vai aprender durante este webinar gratuito ao vivo:
+              Aqui está o que você vai aprender durante esta aula gratuita ao vivo:
             </h3>
             <ul className="space-y-4">
               <li className="flex">
@@ -133,7 +133,7 @@ export default function ConfirmacaoWebinar() {
               <Clock className="h-5 w-5 mr-2" />
               <p className="font-medium">11:45 AM GMT-3</p>
             </div>
-            <p className="font-medium mb-2">O webinar começa em:</p>
+            <p className="font-medium mb-2">A aula começa em:</p>
             <div className="flex gap-4 justify-center">
               <div className="text-center">
                 <p className="text-xl font-bold">0</p>
@@ -165,7 +165,7 @@ export default function ConfirmacaoWebinar() {
 
       {/* Rodapé */}
       <footer className="mt-auto py-4 text-center text-sm text-gray-600">
-        <p>Copyright © 2024 Asiaforexmentor.com. Todos os Direitos Reservados.</p>
+        <p>Copyright © 2024 Willian Aksenen Todos os Direitos Reservados.</p>
       </footer>
     </div>
   )
