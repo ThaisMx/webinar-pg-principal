@@ -75,10 +75,10 @@ export default function ConfirmacaoWebinarComTemporizador() {
     window.open("https://t.me/copycashforexfree", "_blank")
   }
 
-  // Extrair mês e dia do eventDate
-  const dateObj = eventDate ? new Date(eventDate) : null
-  const month = dateObj ? dateObj.toLocaleString('pt-BR', { month: 'long' }).toUpperCase() : ""
-  const day = dateObj ? dateObj.getDate() : ""
+  // Extrair mês e dia da data atual
+  const today = new Date()
+  const month = today.toLocaleString('pt-BR', { month: 'long' }).toUpperCase()
+  const day = today.getDate()
 
   return (
     <div className="flex flex-col min-h-screen">
