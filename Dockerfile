@@ -15,6 +15,14 @@ RUN pnpm install
 # Copiar o resto dos arquivos
 COPY . .
 
+# Argumentos de build
+ARG NEXT_PUBLIC_BASE_URL
+ARG NEXT_PUBLIC_BASE_PATH
+
+# Variáveis de ambiente para o build
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH
+
 # Build da aplicação
 RUN pnpm build
 
@@ -38,6 +46,14 @@ EXPOSE 3000
 # Definir variável de ambiente
 ENV PORT=3000
 ENV NODE_ENV=production
+
+# Argumentos de runtime
+ARG NEXT_PUBLIC_BASE_URL
+ARG NEXT_PUBLIC_BASE_PATH
+
+# Variáveis de ambiente para runtime
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH
 
 # Comando para iniciar a aplicação
 CMD ["node", "server.js"] 
