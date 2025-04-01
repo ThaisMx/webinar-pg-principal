@@ -72,7 +72,7 @@ export default function ConfirmacaoWebinarComTemporizador() {
   }
 
   const handleBonusClick = () => {
-    window.open("https://web.telegram.org/k/#@copycashforexfree", "_blank")
+    window.open("https://t.me/copycashforexfree", "_blank")
   }
 
   // Extrair mês e dia do eventDate
