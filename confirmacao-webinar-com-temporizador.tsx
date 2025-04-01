@@ -61,7 +61,7 @@ export default function ConfirmacaoWebinarComTemporizador() {
       {/* Seção do Link do Webinar */}
       <div className="max-w-4xl mx-auto w-full px-4 py-8">
         <div className="text-center mb-6">
-          <p className="font-medium mb-2">Link da sua aula:</p>
+          <p className="font-medium mb-2">Link da sua sessão de webinar:</p>
           <div className="flex items-center justify-center gap-2 bg-gray-100 p-2 rounded">
             <input
               type="text"
@@ -72,34 +72,6 @@ export default function ConfirmacaoWebinarComTemporizador() {
             <Button variant="ghost" size="icon" className="h-8 w-8" onClick={copyToClipboard}>
               <Copy className="h-4 w-4" />
             </Button>
-          </div>
-        </div>
-
-        {/* Seção de Compartilhamento */}
-        <div className="text-center mb-6">
-          <p className="font-medium mb-2">Compartilhar:</p>
-          <div className="flex justify-center gap-2">
-            <a href="#" className="text-blue-600 text-sm flex items-center">
-              <span className="mr-1">f</span> Facebook
-            </a>
-            <span className="mx-2">|</span>
-            <a href="#" className="text-blue-600 text-sm flex items-center">
-              <span className="mr-1">𝕏</span> Twitter
-            </a>
-          </div>
-        </div>
-
-        {/* Links do Calendário */}
-        <div className="text-center mb-8">
-          <p className="font-medium mb-2">Adicionar aos links do calendário:</p>
-          <div className="flex justify-center gap-2">
-            <a href="#" className="text-blue-600 text-sm flex items-center">
-              <span className="mr-1">G</span> Google Agenda
-            </a>
-            <span className="mx-2">|</span>
-            <a href="#" className="text-blue-600 text-sm flex items-center">
-              <span className="mr-1">O</span> Outlook Agenda
-            </a>
           </div>
         </div>
 
