@@ -9,32 +9,59 @@ export default function ConfirmacaoWebinarComTemporizador() {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
-    minutes: 10,
-    seconds: 33,
+    minutes: 0,
+    seconds: 0,
   })
+  const [webinarLink, setWebinarLink] = useState("")
+  const [eventDate, setEventDate] = useState("")
+  const [eventTime, setEventTime] = useState("")
+  const [eventTimezone, setEventTimezone] = useState("")
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 }
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 }
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 }
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 }
-        }
-        return prev
-      })
-    }, 1000)
+    // Pegar parâmetros da URL
+    const params = new URLSearchParams(window.location.search)
+    const link = decodeURIComponent(params.get("wj_lead_unique_link_live_room") || "")
+    const date = decodeURIComponent(params.get("wj_next_event_date") || "")
+    const time = decodeURIComponent(params.get("wj_next_event_time") || "")
+    const timezone = decodeURIComponent(params.get("wj_next_event_timezone") || "")
+    const timestamp = params.get("wj_event_ts") || ""
 
-    return () => clearInterval(timer)
+    setWebinarLink(link)
+    setEventDate(date)
+    setEventTime(time)
+    setEventTimezone(timezone)
+
+    // Configurar temporizador baseado no timestamp
+    if (timestamp) {
+      const eventTime = parseInt(timestamp) * 1000 // Converter para milissegundos
+      const updateCountdown = () => {
+        const now = new Date().getTime()
+        const distance = eventTime - now
+
+        if (distance > 0) {
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+
+          setCountdown({ days, hours, minutes, seconds })
+        }
+      }
+
+      updateCountdown()
+      const timer = setInterval(updateCountdown, 1000)
+      return () => clearInterval(timer)
+    }
   }, [])
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText("https://webinar.asiaforexmentor.com/webinar/thankyou/66c2a70c1611b0")
+    navigator.clipboard.writeText(webinarLink)
   }
+
+  // Extrair mês e dia do eventDate
+  const dateObj = eventDate ? new Date(eventDate) : null
+  const month = dateObj ? dateObj.toLocaleString('pt-BR', { month: 'long' }).toUpperCase() : ""
+  const day = dateObj ? dateObj.getDate() : ""
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -65,7 +92,7 @@ export default function ConfirmacaoWebinarComTemporizador() {
           <div className="flex items-center justify-center gap-2 bg-gray-100 p-2 rounded">
             <input
               type="text"
-              value="https://webinar.asiaforexmentor.com/webinar/thankyou/66c2a70c1611b0"
+              value={webinarLink}
               readOnly
               className="bg-transparent flex-1 text-sm outline-none"
             />
@@ -137,10 +164,10 @@ export default function ConfirmacaoWebinarComTemporizador() {
           {/* Caixa de Data */}
           <div className="bg-white shadow-md rounded-md overflow-hidden w-32">
             <div className="bg-blue-500 text-white text-center py-2">
-              <p className="font-medium">MARÇO</p>
+              <p className="font-medium">{month}</p>
             </div>
             <div className="text-center py-4">
-              <p className="text-5xl font-bold">27</p>
+              <p className="text-5xl font-bold">{day}</p>
             </div>
           </div>
 
@@ -148,7 +175,7 @@ export default function ConfirmacaoWebinarComTemporizador() {
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
               <Clock className="h-5 w-5 mr-2" />
-              <p className="font-medium">11:45 AM GMT-3</p>
+              <p className="font-medium">{eventTime} {eventTimezone}</p>
             </div>
             <p className="font-medium mb-2">A aula começa em:</p>
             <div className="flex gap-4 justify-center">
