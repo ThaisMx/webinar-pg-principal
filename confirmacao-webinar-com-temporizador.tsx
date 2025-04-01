@@ -53,6 +53,11 @@ export default function ConfirmacaoWebinarComTemporizador() {
           const seconds = Math.floor((distance % (1000 * 60)) / 1000)
 
           setCountdown({ days, hours, minutes, seconds })
+        } else {
+          // Se o cronômetro chegou a zero, redireciona para a sala
+          if (link) {
+            window.location.href = link
+          }
         }
       }
 
@@ -64,6 +69,10 @@ export default function ConfirmacaoWebinarComTemporizador() {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(webinarLink)
+  }
+
+  const handleBonusClick = () => {
+    window.open("https://web.telegram.org/k/#@copycashforexfree", "_blank")
   }
 
   // Extrair mês e dia do eventDate
@@ -209,7 +218,10 @@ export default function ConfirmacaoWebinarComTemporizador() {
 
         {/* Botão de Bônus */}
         <div className="text-center mb-8">
-          <Button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded">
+          <Button 
+            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded"
+            onClick={handleBonusClick}
+          >
             Como prometido, pegue seu BÔNUS GRÁTIS aqui!
           </Button>
         </div>
