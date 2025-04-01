@@ -137,7 +137,7 @@ export default function ConfirmacaoWebinar() {
 
       {/* Rodapé */}
       <footer className="mt-auto py-4 text-center text-sm text-gray-600">
-        <p>Copyright © 2024 Asiaforexmentor.com. Todos os Direitos Reservados.</p>
+        <p>Copyright © 2025 Asiaforexmentor.com. Todos os Direitos Reservados.</p>
       </footer>
     </div>
   )
