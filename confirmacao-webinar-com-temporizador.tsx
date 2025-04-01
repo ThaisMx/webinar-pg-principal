@@ -83,8 +83,8 @@ export default function ConfirmacaoWebinarComTemporizador() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 opacity-20 blur-md"></div>
               <div className="relative mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
                 <Image
-                  src="/placeholder.svg?height=128&width=128"
-                  alt="Apresentador"
+                  src="/will.jpg"
+                  alt="Willian Aksenen"
                   width={128}
                   height={128}
                   className="object-cover"
