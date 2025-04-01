@@ -72,7 +72,7 @@ export default function ConfirmacaoWebinarComTemporizador() {
   }
 
   const handleBonusClick = () => {
-    window.open("https://t.me/copycashforexfree", "_blank")
+    window.open("https://lp.willaksenen.com.br/presente", "_blank")
   }
 
   // Extrair mês e dia da data atual
