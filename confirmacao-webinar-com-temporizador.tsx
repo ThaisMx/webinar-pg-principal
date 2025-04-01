@@ -83,7 +83,7 @@ export default function ConfirmacaoWebinarComTemporizador() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 opacity-20 blur-md"></div>
               <div className="relative mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
                 <Image
-                  src="/will.jpg"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/will.jpg`}
                   alt="Willian Aksenen"
                   width={128}
                   height={128}

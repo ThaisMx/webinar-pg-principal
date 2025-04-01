@@ -48,7 +48,7 @@ export default function ConfirmacaoWebinar() {
           <div className="text-center">
             <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-2">
               <Image
-                src="/will.jpg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/will.jpg`}
                 alt="Willian Aksenen"
                 width={128}
                 height={128}
