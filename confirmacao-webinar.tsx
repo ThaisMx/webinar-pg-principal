@@ -48,15 +48,15 @@ export default function ConfirmacaoWebinar() {
           <div className="text-center">
             <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-2">
               <Image
-                src="/placeholder.svg?height=128&width=128"
-                alt="Apresentador"
+                src="/will.jpg"
+                alt="Willian Aksenen"
                 width={128}
                 height={128}
                 className="object-cover"
               />
             </div>
             <p className="text-sm text-gray-600 mb-1">Apresentado por:</p>
-            <p className="font-bold">Ezekiel Chew</p>
+            <p className="font-bold">Willian Aksenen</p>
           </div>
 
           {/* O que Você Vai Aprender */}
