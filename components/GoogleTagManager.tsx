@@ -1,9 +1,24 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Script from 'next/script';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 export default function GoogleTagManager() {
+  useEffect(() => {
+    // Inicializa o dataLayer e configura evento de página carregada
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'pageLoaded',
+      pageType: 'confirmation'
+    });
+  }, []);
+
   return (
     <>
       <Script id="google-tag-manager" strategy="afterInteractive">
